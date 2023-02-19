@@ -277,6 +277,7 @@ class AMXML:
         try:
             path = self.path
             if default == False:
+                print("\nDirectory in which search the songs:")
                 (path, b) = self.checkpath()
 
             # Search for .mp3 files with user option
@@ -290,6 +291,43 @@ class AMXML:
 
         except Exception as e:
             print("\n\nException in AMXML.findByGenre():\n")
+            print(e)
+            print("\n\n")
+
+    def movebygenre(self, op="!=", genre="R&B/Soul", default=False):
+        """
+        This function takes as input a logical operator and the musical Genre and moves the files into another folder.
+        The default parameter tells to the function to use the default path of the object, on which perform the search, or asks for another.
+        """
+        try:
+
+            dst_path = os.path.join(self.path, "Moved_from_" + genre.replace(
+                '/', '_').replace("'\'", "_"))  # Folder in which place the links
+            if not os.path.exists(dst_path):
+                os.mkdir(dst_path)  # create destination dir
+
+            songs = self.findbygenre(
+                op=op, genre=genre, default=default)  # get songs
+
+            for song in songs:
+                path_alb = os.path.dirname(song)  # path to album
+                path_art = os.path.dirname(path_alb)  # path to artist
+                album = os.path.basename(path_alb)  # album name
+                artist = os.path.basename(path_art)  # artist name
+
+                if(not os.path.exists(os.path.join(dst_path, artist))):  # create artist dir if not exist
+                    os.mkdir(os.path.join(dst_path, artist))
+                if(not os.path.exists(os.path.join(dst_path, artist, album))):  # create album dir if not exist
+                    os.mkdir(os.path.join(dst_path, artist, album))
+
+                # subprocess.call(
+                #    "mv " + song + " " + os.path.join(p, artist, album), shell=True)
+                #
+                shutil.move(song, os.path.join(
+                    dst_path, artist, album))
+#
+        except Exception as e:
+            print("\n\nException in AMXML.movebygenre():\n")
             print(e)
             print("\n\n")
 
