@@ -135,7 +135,7 @@ in order to see an unstructered view of the missing songs and the total number o
 AppleMusicDRM Converter removes some symbols like **":\\?"** from the names of files, while Apple Music XML doesn't.
 This creates ambiguity and some songs stored on your device might not be found from AMXML.
 
-To overcome this problem always check that the number of songs in the playlist matches the number of links (or copies) created with AMXML.tolink().
+To overcome this problem always check that the number of songs in the playlist matches the number of links (or copies) created with **AMXML.tolink()**.
 If the numbers are different, you can explore the missing files by invoking: 
 
     artists, artists_songs = AMXML_object.getmissing()
@@ -145,7 +145,7 @@ and look for missing songs.
 It could happen that some songs are not really missing, this could be due to the ambiguity of the names explained before.
 To find out what's causing the problem, simply invoke: 
 
-   sym = AMXML_object.getsymbols()
+    sym = AMXML_object.getsymbols()
 
 
 You will get a list of symbols (non-alphabetic characters).
