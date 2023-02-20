@@ -1,6 +1,6 @@
 # MusicManager
 
-This is a Python program which lets you to manage your music by using XML files
+This is a Python program which lets you manage your music by using XML files
 
 
 ## XML Manager
@@ -72,7 +72,6 @@ If you  DON'T want to follow this convention you can simply create an unique mus
 Once instantied, the object will extract the information about every song in the XML file following the convention Artist/Album/Song.
 
 ## Operations
-#
 ### Link or copy the songs from the path source: 
 
 
