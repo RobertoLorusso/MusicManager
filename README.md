@@ -28,13 +28,33 @@ It will ask for the path of one or more XML files outputted by the XML Manager.
 
 These XML files will be used to stop the DRM converter when it finds the song being converted in one of the XML trees, moving to the next conversion.
 
+### Drawbacks
+The daemon will make the conversion 'Failed' and approximately one minute will be needed for starting the next conversion.
+On a playlist of 2000 songs for which the 50% has been converted, 16 Hours will be consumed only for 'Failed' conversions. 
+
+### Solutions
+To overcome this problem the following Apple Music XML Manager has been implemented. See the section **Operations** for further details.
+
 
 ## Apple Music XML Manager (AMXML)
 
 This script lets you exploit XMLs exported by Apple Music to copy or create links to the songs already stored on your device with the pattern Artist/Album/Song.
 
+### Objective
 Since organising hundreds or thousand of songs in playlists can be a tough and time-wasting work, you can use the script make_playlist_from_xml.py do it for you.
 The purpose is to exploit the power of Apple Music' Smart playlists to organize your music library.
+
+Furthermore, AMXML can be used to check what are the missing songs of a given playlist, thus saving a lot of conversion time. 
+
+Example: 
+Assuming a playlist named 'Jazz' with 1000 songs. Suppose that after the entire conversion, which will take some days, you have added another 100 songs to the playlist. If you want to convert only these 100 songs you have two alternatives: 
+
+- Convert again the entire playlist by using **Python Daemon**, spending around 32 Hours for failed conversion and 10 Hours for the conversion of the 100 songs (assuming each jazz song last 5 minute on average, which is an overstimated number!), 1/3 of the time is "wasted".
+
+- Select manually the 100 songs and save the unbalanced time of failing conversion wrt to that of the 100 songs.
+
+Of course you would choose the second alternative! But how to know *exactly* which are the 100 songs without any doubt?
+You can simply export the XML of your Apple Music playlist and make **AMXML** do the work!
 
 ### Apple music playlist export
 
