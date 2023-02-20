@@ -48,12 +48,12 @@ Now you can create an istance of the class AMXML (Apple Music XML):
 
         AMXML_object = AMXML(default=True)
     
-With default = True it will ask for default settings (if not present yet) regarding
+With **default=True** it will ask for default settings (if not present yet) regarding
 
 -   The path of the Apple Music XML previously exported;
 -   The path of the directory in which your songs are stored;
 
-And will save them in a .txt file. If default=False the informations will be not saved.
+And will save them in a .txt file. If **default=False** the informations will be not saved and will be lost when deleting the object or halting the python interpreter.
 
 NB: The latter must be structured as the "Genres" folder in the example below: 
 
