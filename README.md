@@ -87,6 +87,10 @@ When **type="s"** will create symlinks to the songs stored on the device in a fo
 
 
 When **type="c"** will copy to the songs stored on the device in a folder under the parent directory "Genres", named as the playlist.
+After invoking this function, **self.missing_songs** will be populated.
+
+When **type** parameter differs from 'c' or 's' only the **self.missing_songs** will be populated.
+
 
 #### Get the missing artists and their songs on your device with respect to the Apple Music XML playlist.
 
