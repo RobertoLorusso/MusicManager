@@ -48,7 +48,7 @@ Now you can create an istance of the class AMXML (Apple Music XML):
 
         AMXML_object = AMXML(default=True)
     
-With default = True it will ask for default settings regarding
+With default = True it will ask for default settings (if not present yet) regarding
 
 -   The path of the Apple Music XML previously exported;
 -   The path of the directory in which your songs are stored;
