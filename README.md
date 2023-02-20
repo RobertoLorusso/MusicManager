@@ -21,8 +21,12 @@ The generation of the XML tree is a prior for the Python Daemon working correctl
 ## Python daemon
 Since AppleMacSoft doesn't track the already convereted songs if you close the application, a daemon which does the work is necessary.
 Make sure you have generated one or more XML of the songs already converted, thus stored on your device. 
+
 The script fcheck.py has to be executed inside the directory in which the songs are being converted by AppleMacSoftDRM.
-It will ask for the path of one or more XML files outputted by the XML Manager. These XML files will be used to stop the DRM converter when it finds the song being converted in one of the XML trees, moving to the next conversion.
+
+It will ask for the path of one or more XML files outputted by the XML Manager. 
+
+These XML files will be used to stop the DRM converter when it finds the song being converted in one of the XML trees, moving to the next conversion.
 
 
 ## Apple Music XML Manager (AMXML)
@@ -77,14 +81,13 @@ Once instantied, the object will extract the information about every song in the
 
     AMXML_object.tolink(type="s")
 
-When type="s" will create symlinks to the songs stored on the device in a folder under the parent directory "Genres", named as the playlist.
+When **type="s"** will create symlinks to the songs stored on the device in a folder under the parent directory "Genres", named as the playlist.
 
     AMXML_object.tolink(type="c")
 
 
-When type="c" will copy to the songs stored on the device in a folder under the parent directory "Genres", named as the playlist.
+When **type="c"** will copy to the songs stored on the device in a folder under the parent directory "Genres", named as the playlist.
 
-#
 #### Get the missing artists and their songs on your device with respect to the Apple Music XML playlist.
 
     artists, artists_songs = AMXML_object.getmissing()
@@ -105,8 +108,8 @@ in order to see an unstructered view of the missing songs and the total number o
 
 ### Possible problems and debugging
 
-AppleMusicDRM Converter removes some symbols like ":\?" from the names of files, while Apple Music XML doesn't.
-This creates ambiguity and some songs stored on your might not be found from AMXML.
+AppleMusicDRM Converter removes some symbols like **":\\?"** from the names of files, while Apple Music XML doesn't.
+This creates ambiguity and some songs stored on your device might not be found from AMXML.
 
 To overcome this problem always check that the number of songs in the playlist matches the number of links (or copies) created with AMXML.tolink().
 If the numbers are different, you can explore the missing files by invoking: 
@@ -122,7 +125,7 @@ To find out what's causing the problem, simply invoke:
 
 
 You will get a list of symbols (non-alphabetic characters).
-Check if one of them is not listed in self.symbols in the AMXML.init() and add it to the variable value; then try to execute again AMXML.tolink() and repeat this checking process.
+Check if one of them is not listed in **self.symbols** in the **AMXML.init()** and add it to the variable value; then try to execute again **AMXML.tolink()** and repeat this checking process.
 
 
 
